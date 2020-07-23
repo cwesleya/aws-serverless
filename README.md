@@ -4,4 +4,4 @@ This is a "serverless" portfolio
 
 # Technologies
 
-Git, GitHub, SSH
+Brew, Git, GitHub, SSH, HTML, CSS, Font Awesome, Google Fonts
