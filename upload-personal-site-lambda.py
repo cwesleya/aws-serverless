@@ -2,7 +2,7 @@
 # #from botocore.client import Config
 import json
 import zipfile
-#import mimetypes
+import mimetypes
 import boto3
 from io import BytesIO
 
@@ -37,7 +37,7 @@ def lambda_handler(event, context):
         with zipfile.ZipFile(personal_zip) as myzip:
             for nm in myzip.namelist():
                 obj = myzip.open(nm)
-                personal_bucket.upload_fileobj(obj, nm)#, ExtraArgs={'ContentType': mimetypes.guess_type(nm)[0]})
+                personal_bucket.upload_fileobj(obj, nm, ExtraArgs={'ContentType': mimetypes.guess_type(nm)[0]})
                 personal_bucket.Object(nm).Acl().put(ACL='public-read')
 
         # # On Windows and some other OS, this will be a different location than /tmp
