@@ -1,14 +1,13 @@
-import React from 'react';
-
+import React from 'react'
 
 class ExampleWork extends React.Component {
-  render() {
+  render () {
     return (
-      <section className="section section--alignCentered section--description">
+      <section className='section section--alignCentered section--description'>
 
         {this.props.work.map((example, index) => {
           return (
-            <ExampleWorkBubble example={example} key={index}/>
+            <ExampleWorkBubble example={example} key={index} />
           )
         })}
 
@@ -18,27 +17,30 @@ class ExampleWork extends React.Component {
 }
 
 class ExampleWorkBubble extends React.Component {
-  render() {
-    let example = this.props.example;
+  render () {
+    const example = this.props.example
 
     return (
-      <div className="section__exampleWrapper">
-        <div className="section__example">
-          <img alt={example.image.desc}
-               className="section__exampleImage"
-               src={example.image.src}/>
-               
-          {example.image.comment ? example.image.comment : ''}
+      <div className='section__exampleWrapper'>
+        <div className='section__example'>
+          <img
+            alt={example.image.desc}
+            className='section__exampleImage'
+            src={example.image.src}
+          />
 
-          <dl className="color--cloud">
-            <dt className="section__exampleTitle section__text--centered">
+          {example.image.comment}
+
+          <dl className='color--cloud'>
+            <dt className='section__exampleTitle section__text--centered'>
               {example.title}
             </dt>
-            <dd></dd>
+            <dd />
           </dl>
         </div>
       </div>
     )
   }
 }
-export default ExampleWork;
+export default ExampleWork
+export { ExampleWorkBubble }

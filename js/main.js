@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import ExampleWork from './example-work';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import ExampleWork from './example-work'
 
 const myWork = [
   {
@@ -25,9 +25,9 @@ const myWork = [
     image: {
       desc: 'example screenshot of a project involving cats',
       src: 'images/example3.png',
-      comment: undefined
+      comment: 'undefined'
     }
   }
-];
+]
 
-ReactDOM.render(<ExampleWork work={myWork}/>, document.getElementById('example-work'));
+ReactDOM.render(<ExampleWork work={myWork} />, document.getElementById('example-work'))
