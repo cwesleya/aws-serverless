@@ -113,7 +113,9 @@ __tests__
 
 babel.html
 react.html
-test-*
+test-buildspec.yml
+test-index.html
 js/example-work-modal.js
 js/example-work.js
 js/main.js
+styles/main.css

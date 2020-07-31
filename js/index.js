@@ -35,8 +35,6 @@ window.addEventListener('hashchange', (e) => {
   }
 })
 
-window.routeTo = routeTo
-
 const getBooks = () => {
   return [
       {
@@ -136,7 +134,7 @@ const filterBooks = (inputField, tableName) => {
     .getElementById(tableName)
     .getElementsByTagName('tr')
 
-  //start  at 1 to skip the header row
+  //start at 1 to skip the header row
   for (let i = 1; i < tr.length; i++) {
     let row = tr[i]
     let td = tr[i].getElementsByTagName('td')
@@ -165,9 +163,30 @@ const parseDate = (date) => {
   return date.getUTCFullYear()
 }
 
+const addEventListeners = () => {
+  document
+    .getElementById('filter-input')
+    .addEventListener('keyup', () => {
+      filterBooks('filter-input', 'booksTable')
+    })
+
+  const elements = document
+    .getElementsByClassName('main-navbar')
+
+  for (let i = 0; i < elements.length; i++) {
+      elements[i].addEventListener(
+        'click',
+        () => {
+          routeTo(elements[i].innerHTML)
+        }
+      )
+  }
+}
+
 (function () {
   const books = getBooks()
   const columns = Object.keys(books[0])
 
   buildTable(columns, books)
+  addEventListeners()
 })()

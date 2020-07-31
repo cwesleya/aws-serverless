@@ -1,4 +1,4 @@
-version: 0.1
+version: 0.2
 
 phases:
   pre_build:
@@ -14,5 +14,4 @@ artifacts:
     - favicon.ico
     - about.html
     - wesley.resume.pdf
-    - dist/bundle.css
-    - dist/bundle.js
+    - dist/*

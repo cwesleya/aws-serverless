@@ -15,9 +15,9 @@
 <body>
   <header class="header">
     <ul>
-      <li onclick="routeTo(this.innerHTML)">Home</li>
-      <li onclick="routeTo(this.innerHTML)">About</li>
-      <li onclick="routeTo(this.innerHTML)">Contact</li>
+      <li class="main-navbar">Home</li>
+      <li class="main-navbar">About</li>
+      <li class="main-navbar">Contact</li>
       <!-- Link to Linked In profile -->
       <li class="socialWrapper">
         <a class="social"
@@ -52,7 +52,7 @@
   <div id="root" class="small-container">
     <div class="view" id="home">
       <span>
-        <input class="input inputSmall" type="text" id="filter-input" onkeyup="filterBooks('filter-input', 'booksTable')" placeholder="Search (case sensitive)">
+        <input class="input inputSmall" type="text" id="filter-input" placeholder="Search (case sensitive)">
       </span>
       <div class="tableBodyScroll">
         <table id="booksTable">
