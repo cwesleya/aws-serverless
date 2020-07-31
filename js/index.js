@@ -174,12 +174,9 @@ const addEventListeners = () => {
     .getElementsByClassName('main-navbar')
 
   for (let i = 0; i < elements.length; i++) {
-      elements[i].addEventListener(
-        'click',
-        () => {
-          routeTo(elements[i].innerHTML)
-        }
-      )
+    elements[i].addEventListener('click', () => {
+      routeTo(elements[i].innerHTML)
+    })
   }
 }
 
