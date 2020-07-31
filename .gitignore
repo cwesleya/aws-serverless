@@ -107,4 +107,13 @@ dist
 package-lock.json
 .DS_Store
 
-./images
+images
+
+__tests__
+
+babel.html
+react.html
+test-*
+js/example-work-modal.js
+js/example-work.js
+js/main.js
