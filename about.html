@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"/>
+    <style>
+      body {
+        margin: auto;
+        width: 50%;
+        padding: .3rem;
+        font-family: 'Roboto';
+      }
+      </style>
+    <title>About Me</title>
+  </head>
+  <body>
+    <header style="font-size: 18px;"><strong>About Me</strong></header>
+
+    <article style="font-size: 16px;">
+      <p>
+        My name is Wesley Chambers and this is my personal site. I'm not sure where I want to go with it yet, but I've written it using only HTML, CSS, and&nbsp;plain Javascript. The actual CI/CD process is automated and uses mostly&nbsp;<strong>AWS </strong>services.&nbsp;
+      </p>
+
+      <p>
+        Right now it is a static site registered in<strong>&nbsp;</strong><strong>Route53</strong>&nbsp;and hosted in&nbsp;<strong>S3</strong>&nbsp;behind a&nbsp;<strong>CloudFront</strong>&nbsp;distribution. When code is pushed to the master branch in GitHub, a&nbsp;<strong>CodePipeline</strong>&nbsp;process kicks off. It takes the code from this repository, makes a build using&nbsp;<strong>CodeBuild</strong>&nbsp;(based on the buildspec.yml), which zips the built code and puts it into a separate S3 bucket. The pipeline then executes a&nbsp;<strong>Lambda</strong>&nbsp;function, written in python, which unzips and publishes the site to the site bucket. The function then uses&nbsp;<strong>SNS</strong>&nbsp;to send an email to the admin (me!).
+      </p>
+
+      <p>
+        Feel free to reach out to me using the contact form.
+      </p>
+    </article>
+  </body>
+</html>

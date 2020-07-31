@@ -4,15 +4,16 @@ phases:
   pre_build:
     commands:
       - npm install
+      - npm run test
   build:
     commands:
+      - npm i
       - npm run webpack
-      - npm run minify-css
 artifacts:
   files:
     - index.html
     - favicon.ico
-    - about.html
     - wesley.resume.pdf
-    - dist/bundle.css
+    - styles/main.css
+    - images/*
     - dist/bundle.js

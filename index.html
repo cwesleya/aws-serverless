@@ -1,80 +1,95 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Sample Serverless Portfolio</title>
-    <link rel="stylesheet" href="styles/main.css"/>
+<html lang="en">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<head>
+  <meta charset="utf-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  <title>Personal Site</title>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"/>
-  </head>
+  <link rel="stylesheet" href="dist/bundle.css">
+</head>
 
-  <body>
-    <main class="overflow--auto">
-      <h1 class="color--skyBlue section__heading--largest">
-        <!--Your name goes here -->
-        Wesley Chambers
-      </h1>
+<body>
+  <header class="header">
+    <ul>
+      <li onclick="routeTo(this.innerHTML)">Home</li>
+      <li onclick="routeTo(this.innerHTML)">About</li>
+      <li onclick="routeTo(this.innerHTML)">Contact</li>
+      <!-- Link to Linked In profile -->
+      <li class="socialWrapper">
+        <a class="social"
+           title="LinkedIn Profile"
+           target="_blank"
+           href="https://www.linkedin.com/in/wesley-a-chambers">
+          <i class="fa fa-linkedin"></i>
+        </a>
+      </li>
+      <!-- Link to GitHub profile -->
+      <li class="socialWrapper">
+        <a class="social"
+           title="GitHub Profile"
+           target="_blank"
+           href="https://github.com/cwesleya">
+          <i class="fa fa-github"></i>
+        </a>
+      </li>
+      <!-- Link to resume -->
+      <li class="socialWrapper">
+        <a class="social"
+           title="Resume"
+           target="_blank"
+           href="./wesley.resume.pdf">
+          <i class="fa fa-file-text"></i>
+        </a>
+      </li>
+    </ul>
+  </header>
+  </br>
 
-      <ul class="section--social">
+  <div id="root" class="small-container">
+    <div class="view" id="home">
+      <span>
+        <input class="input inputSmall" type="text" id="filter-input" onkeyup="filterBooks('filter-input', 'booksTable')" placeholder="Search (case sensitive)">
+      </span>
+      <div class="tableBodyScroll">
+        <table id="booksTable">
+          <caption class="tableCaption">Some Sample Books</caption>
+          <thead>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="view" id="about" style="display:none">
+      <iframe
+        style="width:100%;"
+        frameborder="0"
+        scrolling="no"
+        onload="this.style.height=(this.contentWindow.document.body.scrollHeight+500)+'px';"
+        type="text/html"
+        src="./about.html">
+      </iframe>
+    </div>
+    <div class="view small-container-form" id="contact" style="display:none">
+      <form id="contact-form" method="post">
+          <h4>Name:</h4>
+          <input type="text" id="name-input" placeholder="Enter name here…" class="form-control input inputSmall" /><br/>
+          <h4>Email:</h4>
+          <input type="email" id="email-input" placeholder="Enter email here…" class="form-control input inputSmall"/><br/>
+          <h4>Message</h4>
+          <textarea id="description-input" rows="5" placeholder="Enter your message…" class="form-control input inputLarge"></textarea><br/>
+          <div class="g-recaptcha" data-sitekey="6Lc7cVMUAAAAAM1yxf64wrmO8gvi8A1oQ_ead1ys" class="form-control"></div>
+          <button type="button" onClick="submitToAPI(event)" class="btn btn-lg">Submit (not currently set up but working on it!)</button>
+      </form>
+    </div>
+  </div>
 
-        <!--Links to relevant professional social media & resume -->
-        <!-- See: http://fontawesome.io/icons/#brand for more -->
+  <!-- <script type="text/javascript" src="./main.js"></script> -->
+  <script type="text/javascript" src="dist/bundle.js"></script>
+</body>
 
-        <!-- Link to Linked In profile -->
-        <li class="socialWrapper">
-          <a class="color--skyBlue social"
-             title="LinkedIn Profile"
-             target="_blank"
-             href="https://www.linkedin.com/in/wesley-a-chambers">
-            <i class="fa fa-linkedin"></i>
-          </a>
-        </li>
-
-        <!-- Link to GitHub profile -->
-        <li class="socialWrapper color--skyBlue">
-          <a class="social color--skyBlue"
-             title="GitHub Profile"
-             target="_blank"
-             href="https://github.com/cwesleya">
-            <i class="fa fa-github"></i>
-          </a>
-        </li>
-
-        <!-- Link to resume, probably a .pdf -->
-        <li class="socialWrapper">
-          <a class="social color--skyBlue"
-             title="Resume"
-             href="wesley.resume.pdf">
-            <i class="fa fa-file-text"></i>
-          </a>
-        </li>
-      </ul>
-    </main>
-
-    <section class="background--skyBlue section">
-      <h2 class="color--cloud margin--none section__text--centered">
-        Portfolio
-      </h2>
-    </section>
-
-    <div id="example-work"></div>
-
-    <section class="background--skyBlue section">
-      <h2 class="color--cloud margin--none section__text--centered">
-        About Me
-      </h2>
-    </section>
-
-    <section class="section section--alignCentered section--description">
-      <p class="color--darkgrey section__description">
-        Code in the cloud!
-      </p>
-
-
-    <script type="text/javascript" src="dist/bundle.js">
-
-    </script>
-  </body>
 </html>
