@@ -79,7 +79,7 @@ function dataTable(name) {
         th.addEventListener(`click`, evt => {
           // console.log(th)
           // console.log(this.tableHeaderCells)
-          this.sortRows(position + 1)
+          this.sortRows(th, position + 1)
         })
       })
   }
@@ -134,11 +134,12 @@ function dataTable(name) {
     }
   }
 
-  this.sortRows = (column) => {
-    //const compareValues = (a, b) => a > b ? -1 : a < b ? 1 : 0; desc
-    const compareValues = (a, b) => a < b ? -1 : a > b ? 1 : 0;
-
+  this.sortRows = (th, column) => {
+    const compareValues = (a, b) => a > b ? -1 : a < b ? 1 : 0;
     let qs = `td:nth-child(${column})`
+    let asc = th.getAttribute('sort') === 'asc'
+
+    th.setAttribute('sort', asc ? 'desc' : 'asc')
 
     this.bodyRows
       .sort((r1,r2) => {
@@ -149,8 +150,8 @@ function dataTable(name) {
         // and then effect sorting by comparing their content:
 
         return compareValues(
-          parseIntIfNum(t1.textContent),
-          parseIntIfNum(t2.textContent)
+          parseIntIfNum(asc ? t1.textContent : t2.textContent),
+          parseIntIfNum(asc ? t2.textContent : t1.textContent)
         )
     })
 
