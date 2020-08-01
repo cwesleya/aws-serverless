@@ -315,4 +315,4 @@ setTimeout(() => {
     bodyCellId: 'title'
   })
   addEventListeners()
-}, 3000)
+}, 2000)
