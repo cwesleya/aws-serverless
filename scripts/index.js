@@ -103,13 +103,12 @@ function dataTable(name) {
     this.addEventListeners()
   }
 
-  this.filter = (inputField, tableName) => {
+  this.filterRows = (inputField) => {
     let filter = document
       .getElementById(inputField)
       .value
       .toLowerCase()
-    let tr = document
-      .getElementById(tableName)
+    let tr = this.table
       .getElementsByTagName('tr')
 
     //start at 1 to skip the header row
@@ -279,7 +278,7 @@ const addEventListeners = () => {
   document
     .getElementById('filter-input')
     .addEventListener('keyup', () => {
-      booksTable.filter('filter-input', 'booksTable')
+      booksTable.filterRows('filter-input')
     })
 
   const elements = document
