@@ -115,7 +115,7 @@ babel.html
 react.html
 test-buildspec.yml
 test-index.html
-js/example-work-modal.js
-js/example-work.js
-js/main.js
+scripts/example-work-modal.js
+scripts/example-work.js
+scripts/main.js
 styles/main.css
