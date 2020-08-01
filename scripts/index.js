@@ -76,9 +76,7 @@ function dataTable(name) {
       .getElementById(this.tableName)
       .querySelectorAll('th')
       .forEach((th, position) => {
-        th.addEventListener(`click`, evt => {
-          // console.log(th)
-          // console.log(this.tableHeaderCells)
+        th.addEventListener('click', (evt) => {
           this.sortRows(th, position + 1)
         })
       })
@@ -277,7 +275,11 @@ const getHtmlText = (cell) => {
 const addEventListeners = () => {
   document
     .getElementById('filter-input')
-    .addEventListener('keyup', () => {
+    .addEventListener('keyup', (e) => {
+      // let tableName = e.srcElement
+      //   .closest('span')
+      //   .nextElementSibling
+      //   .getAttribute('id') //'booksTable'
       booksTable.filterRows('filter-input')
     })
 
@@ -285,7 +287,7 @@ const addEventListeners = () => {
     .getElementsByClassName('main-navbar')
 
   for (let i = 0; i < elements.length; i++) {
-    elements[i].addEventListener('click', () => {
+    elements[i].addEventListener('click', (e) => {
       routeTo(elements[i].innerHTML)
     })
   }
