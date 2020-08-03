@@ -13,5 +13,5 @@ artifacts:
     - index.html
     - favicon.ico
     - about.html
-    - wesley.resume.pdf
+    - wesley.resume.no-contact-info.pdf
     - dist/*
